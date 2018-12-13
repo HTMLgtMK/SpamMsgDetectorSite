@@ -1,20 +1,4 @@
-# spam_detect
-中文垃圾短信识别
+copy from [spam_detect](https://github.com/liuchangdm/spam_detect)
 
-## train
-
-> python run.py train
-
-## test
-
-> python run.py test --classifier=P(LR,DT,KNN,GBDT)
-
-## inference
-
->python run.py inference --classifier=P(LR,DT,KNN,GBDT)
-
-input: your text
-
-Is spam!(Not spam!)
-
-input:exit
+**NewFile**:
+`runAPI.py`

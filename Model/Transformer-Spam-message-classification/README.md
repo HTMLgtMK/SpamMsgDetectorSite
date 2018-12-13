@@ -1,26 +1,21 @@
-# Transformer-Spam-message-classification
-Using transformer for Spam message classification(tensorflow attention is all you need)
+copy from [Transformer-Spam-message-classification](https://github.com/guojm14/Transformer-Spam-message-classification)
 
-edit model.py for datasource and other hyper-parameters  
-edit model.py for train or test
+**Modified:**
+`model_with_reference.py` add code:
+```python
+    def __call__():
+        # .. omit
 
-python model.py
+    def inferenceAPI(self,data):
+        vec=np.array([self.vecmodel(data)])
+        padnum=np.ones((1,vec.shape[0]))
+        logit =self.sess.run(self.outlabel,feed_dict={self.inputdata:vec,self.inputpadding:padnum,self.pos:model_utils.get_position_encoding(len(vec),32)})[0]
+        return logit # just return result
+        
+# a=inference()
+# a("dsadasd")
 
-data_format:  
+```
 
-label message  
-
-0 not  
-1 spam  
-
-reference:  
-Attenion is all you need  
-https://github.com/tensorflow/models.git  
-https://github.com/Embedding/Chinese-Word-Vectors.git  
-
-accuracy：99%+
-recall：99%+
-precision：98%+
-
-UCAS Web Data Mining homework
-
+**NewFile** 
+`runAPI.py`
